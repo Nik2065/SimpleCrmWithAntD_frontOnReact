@@ -14,18 +14,31 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
+    #strategy:
+    #  matrix:
+    #    node-version: [12.x, 14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Yarn Installation
+      run: |
+        mkdir ~/.npm-global
+        npm config set prefix '~/.npm-global'
+        export PATH=~/.npm-global/bin:$PATH
+        source ~/.profile
+        npm install -g yarn
+    - name: Checkout Repo    
+    - uses: actions/checkout@master
+    - name: Install Dependencies
+      run: yarn install
+    - name: Build
+        run: yarn build
+        
+    #- name: Use Node.js ${{ matrix.node-version }}
+    #  uses: actions/setup-node@v2
+    #  with:
+    #    node-version: ${{ matrix.node-version }}
+    #    cache: 'npm'
+    #- run: npm ci
+    #- run: npm run build --if-present
+    #- run: npm test
