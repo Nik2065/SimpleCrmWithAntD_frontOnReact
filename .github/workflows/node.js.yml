@@ -30,9 +30,11 @@ jobs:
     - name: Checkout Repo    
       uses: actions/checkout@v2
     - name: Install Dependencies
-      run: yarn install
-    - name: Build
-      run: yarn build
+      run: |
+      cd Src/simple-crm-app/
+      yarn install
+    #- name: Build
+    #  run: yarn build
         
     #- name: Use Node.js ${{ matrix.node-version }}
     #  uses: actions/setup-node@v2
