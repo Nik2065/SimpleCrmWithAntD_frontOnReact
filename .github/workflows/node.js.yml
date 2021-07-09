@@ -27,10 +27,10 @@ jobs:
         export PATH=~/.npm-global/bin:$PATH
         source ~/.profile
         npm install -g yarn
-    #- name: Checkout Repo    
-    #- uses: actions/checkout@master
-    #- name: Install Dependencies
-    #  run: yarn install
+    - name: Checkout Repo    
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: yarn install
     #- name: Build
     #  run: yarn build
         
