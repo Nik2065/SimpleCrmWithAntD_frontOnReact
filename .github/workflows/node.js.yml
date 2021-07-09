@@ -33,8 +33,10 @@ jobs:
       run: |
        cd Src/simple-crm-app/
        yarn install
-    #- name: Build
-    #  run: yarn build
+    - name: Build
+      run: |
+       cd Src/simple-crm-app/
+       yarn build
         
     #- name: Use Node.js ${{ matrix.node-version }}
     #  uses: actions/setup-node@v2
