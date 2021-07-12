@@ -37,14 +37,17 @@ jobs:
       run: |
        cd Src/simple-crm-app/
        yarn build
-    - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v2
-      with:
-        host: ${{ secrets.FTPHOST }}
-        user: ${{ secrets.FTPUSER }}
-        password: ${{ secrets.FTPPASSWORD }}
-        localDir: "build"
-        remoteDir: "frontOnReact"
+    - name: echoStage
+      run: |
+       ls
+    #- name: Upload ftp
+    #  uses: sebastianpopp/ftp-action@releases/v2
+    #  with:
+    #    host: ${{ secrets.FTPHOST }}
+    #    user: ${{ secrets.FTPUSER }}
+    #    password: ${{ secrets.FTPPASSWORD }}
+    #    localDir: "build"
+    #    remoteDir: "frontOnReact"
         #options: "--delete --asci"
 
     #- name: Use Node.js ${{ matrix.node-version }}
