@@ -39,7 +39,7 @@ jobs:
        yarn build
     - name: echoStage
       run: |
-       echo `ls -l`
+       echo "$(ls)"
     #- name: Upload ftp
     #  uses: sebastianpopp/ftp-action@releases/v2
     #  with:
