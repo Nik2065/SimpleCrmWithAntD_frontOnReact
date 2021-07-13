@@ -52,9 +52,9 @@ jobs:
         host: ${{ secrets.FTPHOST }}
         user: ${{ secrets.FTPUSER }}
         password: ${{ secrets.FTPPASSWORD }}
-        localDir: "Src/simple-crm-app/build/"
+        localDir: "Src"
         remoteDir: "frontOnReact"
-        #options: "--delete --asci"
+        options: "--delete --asci"
 
     #- name: Use Node.js ${{ matrix.node-version }}
     #  uses: actions/setup-node@v2
