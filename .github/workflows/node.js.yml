@@ -37,22 +37,6 @@ jobs:
       run: |
        cd Src/simple-crm-app/
        yarn build
-    - name: echoStage0
-      run: |
-       #mkdir test1
-       cd test1
-       touch sometest.txt
-       ls
-       
-    - name: echoStage1
-      run: |
-       ls
-       
-    - name: echoStage2
-      run: |
-       cd ..
-       cd ..
-       ls
        
        
     - name: Upload ftp
@@ -61,7 +45,7 @@ jobs:
         host: ${{ secrets.FTPHOST }}
         user: ${{ secrets.FTPUSER }}
         password: ${{ secrets.FTPPASSWORD }}
-        localDir: "test1"
+        localDir: "build"
         remoteDir: "frontOnReact"
         options: "--delete --asci"
 
