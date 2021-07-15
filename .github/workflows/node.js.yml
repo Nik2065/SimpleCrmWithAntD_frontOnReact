@@ -39,7 +39,7 @@ jobs:
        yarn build
     - name: echoStage0
       run: |
-       mkdir test1
+       #mkdir test1
        cd test1
        touch sometest.txt
        ls
