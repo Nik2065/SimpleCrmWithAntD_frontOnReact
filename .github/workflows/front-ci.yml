@@ -49,11 +49,13 @@ jobs:
         remoteDir: "frontOnReact"
         options: "--delete --asci"
 
-    #- name: Use Node.js ${{ matrix.node-version }}
-    #  uses: actions/setup-node@v2
-    #  with:
-    #    node-version: ${{ matrix.node-version }}
-    #    cache: 'npm'
-    #- run: npm ci
-    #- run: npm run build --if-present
-    #- run: npm test
+    - name: DeployScript
+      uses: cross-the-world/ssh-pipeline@master
+      with:
+        host: ${{ secrets.DC_HOST }}
+        user: ${{ secrets.DC_USER }}
+        pass: ${{ secrets.DC_PASS }}
+        port: ${{ secrets.DC_PORT }}
+        connect_timeout: 20s
+        script: |
+          /home/upd_front.script
