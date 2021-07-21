@@ -10,7 +10,7 @@ import Main from './_Components/Main';
 function App() {
   return (
     <Switch>
-        <Route exact path="/" exact component={Main} />
+        <Route exact path="/" component={Main} />
         <Route exact path="/login" component={Login} />
     </Switch>
   );
